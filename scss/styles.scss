@@ -72,6 +72,7 @@ h1, h2, h3, h4, h5, h6 {
 		width: 275px;
 		position: relative;
 		float: left;
+		cursor: pointer;
 		.featured_image {
 			width: 100%;
 			max-width: 100%;
@@ -80,13 +81,25 @@ h1, h2, h3, h4, h5, h6 {
 			-moz-box-shadow: 0px 0px 76px 0px rgba(0, 0, 0, 0.47);
 		  box-shadow: 0px 0px 76px 0px rgba(0, 0, 0, 0.47);
 		}
-		.play_button {
+		// Added play button as a pseudo element
+		&::after {
+			content: "";
 			position: absolute;
 			width: 80px;
-			left: 50%;
+			height: 80px;
 			top: 50%;
-			margin: -40px 0 0 -40px;
+			left: 50%;
+			background: url("../images/play_button.png");
+			background-size: cover;
+			transform: translate(-50%, -50%);
 		}
+		// .play_button {
+		// 	position: absolute;
+		// 	width: 80px;
+		// 	left: 50%;
+		// 	top: 50%;
+		// 	margin: -40px 0 0 -40px;
+		// }
 	}
 	#content {
 		float: left;
@@ -242,12 +255,3 @@ h1, h2, h3, h4, h5, h6 {
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
