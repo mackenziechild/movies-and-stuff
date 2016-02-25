@@ -26,14 +26,35 @@ html, body {
 	margin: 0 auto;
 }
 
+.linkhover{
+	position: relative;
+	&::after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: 3px;
+		width: 100%;
+		max-width: 0%;
+		background-color: $highlight;
+		transition: max-width 250ms ease-in-out;
+	}
+	&:hover::after {
+		max-width: 100%;
+	}
+}
+
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 300;
 }
 
 #top_header {
 	padding: 1.5em 0;
+	.wrapper {
+		display: flex;
+		justify-content: space-between;
+	}
 	.logo {
-		float: left;
 		text-transform: uppercase;
 		font-size: 1.15em;
 		font-weight: 700;
@@ -43,13 +64,16 @@ h1, h2, h3, h4, h5, h6 {
 		}
 	}
 	#main_nav {
-		float: right;
 		font-size: .9em;
 		padding-top: 1em;
 		a {
 			color: $secondary;
 			text-decoration: none;
 			margin-left: 1em;
+			@extend .linkhover;
+			&::after {
+				height: 2px;
+			}
 		}
 	}
 }
@@ -65,13 +89,12 @@ h1, h2, h3, h4, h5, h6 {
 		max-width: 90%;
 		margin: 0 auto;
 		display: flex;
-		justify-content: center;
+		justify-content: space-between;
 		align-items: center
 	}
 	#poster {
 		width: 275px;
 		position: relative;
-		float: left;
 		cursor: pointer;
 		.featured_image {
 			width: 100%;
@@ -102,9 +125,7 @@ h1, h2, h3, h4, h5, h6 {
 		// }
 	}
 	#content {
-		float: left;
 		width: 500px;
-		margin-left: 100px;
 		.title {
 			display: inline;
 			font-size: 1.75em;
@@ -143,6 +164,9 @@ h1, h2, h3, h4, h5, h6 {
 	padding: 5em 0;
 	header {
 		padding: 0 0 1.5em 0;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 		h2, .view_more {
 			display: inline;
 		}
@@ -150,9 +174,11 @@ h1, h2, h3, h4, h5, h6 {
 			font-size: 1.75em;
 		}
 		.view_more {
-			float: right;
 			font-size: .8em;
-			margin: .75em 3.5% 0 0;
+			margin: 0 3.5% 0 0;
+			color: #000000;
+			text-decoration: none;
+			@extend .linkhover;
 		}
 	}
 }
@@ -163,19 +189,25 @@ h1, h2, h3, h4, h5, h6 {
 
 .row {
 	width: 100%;
+	display: flex;
 	.post {
 		width: 14%;
-		float: left;
-		margin-right: 2.5%;
+		margin: 1.25%;
 		img {
 			width: 100%;
 			max-width: 100%;
 			border-radius: .5em;
 		}
 		.title {
+			@extend .linkhover;
 			font-size: 1.25em;
 			margin: 1em 0 0 0;
+			display: inline-block;
 			color: $main;
+			a {
+				color: $main;
+				text-decoration: none;
+			}
 		}
 		.post_info {
 			font-size: .75em;

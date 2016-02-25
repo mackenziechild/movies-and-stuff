@@ -21,6 +21,27 @@ html, body {
   margin: 0 auto;
 }
 
+.linkhover, #top_header #main_nav a, #top_movies header .view_more, #top_shows header .view_more, .row .post .title {
+  position: relative;
+}
+
+.linkhover::after, #top_header #main_nav a::after, #top_movies header .view_more::after, #top_shows header .view_more::after, .row .post .title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  max-width: 0%;
+  background-color: #73e298;
+  -webkit-transition: max-width 250ms ease-in-out;
+          transition: max-width 250ms ease-in-out;
+}
+
+.linkhover:hover::after, #top_header #main_nav a:hover::after, #top_movies header .view_more:hover::after, #top_shows header .view_more:hover::after, .row .post .title:hover::after {
+  max-width: 100%;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
 }
@@ -29,8 +50,18 @@ h1, h2, h3, h4, h5, h6 {
   padding: 1.5em 0;
 }
 
+#top_header .wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 #top_header .logo {
-  float: left;
   text-transform: uppercase;
   font-size: 1.15em;
   font-weight: 700;
@@ -42,7 +73,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #top_header #main_nav {
-  float: right;
   font-size: .9em;
   padding-top: 1em;
 }
@@ -51,6 +81,10 @@ h1, h2, h3, h4, h5, h6 {
   color: #8b8b9f;
   text-decoration: none;
   margin-left: 1em;
+}
+
+#top_header #main_nav a::after {
+  height: 2px;
 }
 
 #banner {
@@ -65,15 +99,23 @@ h1, h2, h3, h4, h5, h6 {
   width: 900px;
   max-width: 90%;
   margin: 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #banner #poster {
   width: 275px;
   position: relative;
-  float: left;
   cursor: pointer;
 }
 
@@ -81,8 +123,6 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   max-width: 100%;
   border-radius: .5em;
-  -webkit-box-shadow: 0px 0px 76px 0px rgba(0, 0, 0, 0.47);
-  -moz-box-shadow: 0px 0px 76px 0px rgba(0, 0, 0, 0.47);
   box-shadow: 0px 0px 76px 0px rgba(0, 0, 0, 0.47);
 }
 
@@ -95,13 +135,13 @@ h1, h2, h3, h4, h5, h6 {
   left: 50%;
   background: url("../images/play_button.png");
   background-size: cover;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 #banner #content {
-  float: left;
   width: 500px;
-  margin-left: 100px;
 }
 
 #banner #content .title {
@@ -148,6 +188,18 @@ h1, h2, h3, h4, h5, h6 {
 
 #top_movies header, #top_shows header {
   padding: 0 0 1.5em 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #top_movies header h2, #top_movies header .view_more, #top_shows header h2, #top_shows header .view_more {
@@ -159,9 +211,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #top_movies header .view_more, #top_shows header .view_more {
-  float: right;
   font-size: .8em;
-  margin: .75em 3.5% 0 0;
+  margin: 0 3.5% 0 0;
+  color: #000000;
+  text-decoration: none;
 }
 
 #top_movies {
@@ -170,12 +223,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .row {
   width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .row .post {
   width: 14%;
-  float: left;
-  margin-right: 2.5%;
+  margin: 1.25%;
 }
 
 .row .post img {
@@ -187,7 +243,13 @@ h1, h2, h3, h4, h5, h6 {
 .row .post .title {
   font-size: 1.25em;
   margin: 1em 0 0 0;
+  display: inline-block;
   color: #252529;
+}
+
+.row .post .title a {
+  color: #252529;
+  text-decoration: none;
 }
 
 .row .post .post_info {
